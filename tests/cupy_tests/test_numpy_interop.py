@@ -151,6 +151,7 @@ class TestAsnumpy:
         assert y.base.ptr == y.ctypes.data
 
     @pytest.mark.parametrize('blocking', (True, False))
+    @testing.slow()
     def test_asnumpy_blocking(self, blocking):
         prefactor = 4
         a = cupy.random.random(prefactor*128*1024*1024, dtype=cupy.float64)
